@@ -47,7 +47,7 @@ DataCollectorApp/
 
 1. Cloner le dépôt :
 ```bash
-git clone [https://github.com/<votre-compte>/DataCollectorApp.git](https://github.com/TBAHRITI-MED/iOSDataCollector.git)
+git clone https://github.com/TBAHRITI-MED/iOSDataCollector.git
 ```
 
 2. Configuration Xcode (14+) :
@@ -77,6 +77,3 @@ git clone [https://github.com/<votre-compte>/DataCollectorApp.git](https://githu
 - Impact batterie en collecte continue
 - Précision GPS variable selon conditions
 
-## Licence
-
-MIT License - Voir LICENSE.md
