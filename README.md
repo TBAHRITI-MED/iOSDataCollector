@@ -76,4 +76,3 @@ git clone https://github.com/TBAHRITI-MED/iOSDataCollector.git
 - Requiert iOS 14+
 - Impact batterie en collecte continue
 - Précision GPS variable selon conditions
-
