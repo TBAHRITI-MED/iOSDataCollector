@@ -47,7 +47,7 @@ DataCollectorApp/
 
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/<votre-compte>/DataCollectorApp.git
+git clone [https://github.com/<votre-compte>/DataCollectorApp.git](https://github.com/TBAHRITI-MED/iOSDataCollector.git)
 ```
 
 2. Configuration Xcode (14+) :
