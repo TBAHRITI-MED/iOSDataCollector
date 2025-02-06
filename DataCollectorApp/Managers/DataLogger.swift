@@ -33,6 +33,7 @@ class DataLogger {
             \(record.networkSignal ?? "Unknown"),\
             \(record.batteryLevel ?? -1),\
             \(record.batteryState ?? "Unknown")
+            \(record.motionActivity ?? "Unknown")
             """
             csvText.append(line + "\n")
         }

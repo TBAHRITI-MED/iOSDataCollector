@@ -6,5 +6,11 @@
 	<array>
 		<string>location</string>
 	</array>
+    <key>NSMotionUsageDescription</key>
+    <string>Cette application utilise l'activité pour déterminer si vous marchez, courez, etc.</string>
+    <key>NSLocationAlwaysUsageDescription</key>
+        <string>Nous avons besoin de votre position en continu, même en arrière-plan.</string>
+        <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+        <string>Nous avons besoin de votre localisation pour XYZ, y compris quand l'application est fermée.</string>
 </dict>
 </plist>

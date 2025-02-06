@@ -10,7 +10,8 @@ struct ContentView: View {
     @StateObject private var networkManager = ConnectivityManager()
     @StateObject private var sensorManager = SensorManager()
     @StateObject private var batteryManager = BatteryManager()
-    
+    @StateObject private var activityManager = ActivityManager()
+
     // Data Logger
     private var dataLogger = DataLogger()
     
@@ -58,7 +59,8 @@ struct ContentView: View {
             Text("Temperature: \(sensorManager.temperature ?? 0, specifier: "%.2f")°C")
             Text("Network: \(networkInfo)")
             Text("Battery: \((batteryManager.batteryLevel * 100), specifier: "%.0f")% (\(batteryManager.batteryStateDescription))")
-            
+            Text("Activity: \(activityManager.currentActivity)")
+
             // Boutons Start/Stop + Export
             HStack {
                 Button(action: {
@@ -122,7 +124,7 @@ struct ContentView: View {
         sensorManager.startSimulating()
         // batteryManager se met à jour tout seul
         // networkManager se met à jour tout seul
-        
+        activityManager.startUpdates()
         // Timer pour collecter à une fréquence donnée (ex : 100 Hz)
         collectionTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true, block: { _ in
             collectData()
@@ -136,6 +138,10 @@ struct ContentView: View {
         sensorManager.stopSimulating()
         collectionTimer?.invalidate()
         collectionTimer = nil
+        activityManager.stopUpdates()
+            
+            collectionTimer?.invalidate()
+            collectionTimer = nil
     }
     
     /// Ajoute une nouvelle ligne de mesures au DataLogger
@@ -163,7 +169,8 @@ struct ContentView: View {
         // Batterie
         let batLvl = batteryManager.batteryLevel
         let batSt  = batteryManager.batteryStateDescription
-        
+        // Récupération du type d'activité
+           let actType = activityManager.currentActivity
         let data = SensorData(
             timestamp: now,
             latitude: lat,
@@ -177,7 +184,8 @@ struct ContentView: View {
             temperature: temp,
             networkSignal: netSignal,
             batteryLevel: batLvl,
-            batteryState: batSt
+            batteryState: batSt,
+            motionActivity: actType
         )
         
         dataLogger.addData(data)

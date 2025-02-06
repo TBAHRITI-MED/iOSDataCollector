@@ -24,4 +24,5 @@ struct SensorData: Codable {
     // Batterie
     let batteryLevel: Float?
     let batteryState: String?
+    let motionActivity: String?  // ex. "Walking", "Running", "Driving", etc.
 }
